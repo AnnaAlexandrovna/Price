@@ -82,7 +82,7 @@ Widget::Widget(QWidget *parent) :
 
     this->setLayout(layout_m);
 
-    file = new QFile("/home/anna/program/txt.dat");
+    file = new QFile("./price.dat");
     if (file->exists())
     {
        label_5->setText("Файл уже создан. Перезаписать?");
@@ -101,30 +101,28 @@ void Widget::input()
 
     {
       Toy b;
-      //задаем какие-то значения b.title и b.text
+
       b.code = lineEdit->text().toInt();
       b.name = lineEdit_2->text();
       b.cost = lineEdit_3->text().toInt();
-out << b;
+      out << b;
       b.code = lineEdit_4->text().toInt();
       b.name = lineEdit_5->text();
       b.cost = lineEdit_6->text().toInt();
-out << b;
+      out << b;
       b.code = lineEdit_7->text().toInt();
       b.name = lineEdit_8->text();
       b.cost = lineEdit_9->text().toInt();
-out << b;
+      out << b;
       b.code = lineEdit_10->text().toInt();
       b.name = lineEdit_11->text();
       b.cost = lineEdit_12->text().toInt();
-
       out << b;
       b.code = lineEdit_13->text().toInt();
       b.name = lineEdit_14->text();
       b.cost = lineEdit_15->text().toInt();
-
       out << b;
-     label_5->setText("Сериализация прошла успешно");  //сериализуем наш объект
+     label_5->setText("Запись прошла успешно");  //сериализуем наш объект
      file->close();
     }
 
