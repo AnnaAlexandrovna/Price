@@ -7,7 +7,6 @@
 #include <QLayout>
 #include <QPushButton>
 #include <QFile>
-#include <QWindow>
 namespace Ui {
 class Widget;
 class Toy;
@@ -22,11 +21,11 @@ public:
     int cost;
 public:
     friend QDataStream &operator <<(QDataStream &stream, const Toy &toy)
-{
-    stream << toy.code;
-    stream << toy.name;
-    stream << toy.cost;
-    return stream;
+    {
+        stream << toy.code;
+        stream << toy.name;
+        stream << toy.cost;
+        return stream;
     }
     friend QDataStream &operator >>(QDataStream &stream, Toy &toy)
     {
@@ -48,8 +47,7 @@ public:
 private:
     Ui::Widget      *ui;
     QFile           *file;
-    QLineEdit       *lineEdit, *lineEdit_2, *lineEdit_3, *lineEdit_4, *lineEdit_5,
-                    *lineEdit_6, *lineEdit_7, *lineEdit_8, *lineEdit_9, *lineEdit_10, *lineEdit_11, *lineEdit_12, *lineEdit_13, *lineEdit_14, *lineEdit_15;
+    QLineEdit *lineEdit[8];
     QGridLayout     *layout;
     QHBoxLayout     *layout_1;
     QVBoxLayout     *layout_m;
